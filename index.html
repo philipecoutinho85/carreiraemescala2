@@ -171,7 +171,7 @@
                         <div class="space-y-4 mb-8 stack-mobile">
                             <div class="relative"><i class="ph-fill ph-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i><input type="text" placeholder="Nome Completo" required class="glass-input app-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none"></div>
                             <div class="relative"><i class="ph-fill ph-envelope-simple absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i><input type="email" placeholder="E-mail principal" required class="glass-input app-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none"></div>
-                            <div class="relative"><i class="ph-fill ph-whatsapp-logo absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i><input type="tel" placeholder="WhatsApp (com DDD)" required class="glass-input app-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none"></div>
+                            <div class="relative"><i class="ph-fill ph-whatsapp-logo absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i><input id="whatsapp-input" type="tel" inputmode="numeric" maxlength="15" placeholder="(11) 99999-9999" required class="glass-input app-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none"></div>
                             <div class="pt-2">
                                 <p class="text-sm text-gray-300 mb-3 font-medium">Você possui certificação Ancord?</p>
                                 <div class="grid grid-cols-2 gap-3">
@@ -313,6 +313,24 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
         AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+
+        function formatWhatsapp(value) {
+            const digits = value.replace(/\D/g, '').slice(0, 11);
+            if (digits.length <= 2) return digits.length ? `(${digits}` : '';
+            if (digits.length <= 7) return `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+            return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+        }
+
+        const whatsappInput = document.getElementById('whatsapp-input');
+        if (whatsappInput) {
+            whatsappInput.addEventListener('input', (e) => {
+                e.target.value = formatWhatsapp(e.target.value);
+            });
+            whatsappInput.addEventListener('blur', (e) => {
+                e.target.value = formatWhatsapp(e.target.value);
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const items = document.querySelectorAll('.carousel-item');
             const dots = document.querySelectorAll('[data-dot]');
