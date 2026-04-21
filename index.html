@@ -150,64 +150,91 @@
         }
 
         @media (max-width: 768px) {
+            :root {
+                --nubank-card-bg: linear-gradient(180deg, rgba(255,255,255,.055) 0%, rgba(255,255,255,.028) 100%);
+                --nubank-card-border: rgba(255,255,255,.09);
+                --nubank-shadow: 0 12px 30px rgba(0,0,0,.22);
+                --nubank-shadow-strong: 0 18px 40px rgba(0,0,0,.28);
+            }
             html, body { scroll-behavior: smooth; }
-            body { padding-bottom: 98px; }
+            body { padding-bottom: 102px; }
             section, footer { overflow: hidden; }
             .mobile-sticky-cta { display: block; }
             .carousel-item.prev, .carousel-item.next { opacity: 0; visibility: hidden; }
             .carousel-item,
             .carousel-item.active,
             .carousel-item.hidden-item {
-                transition: opacity .45s cubic-bezier(.22,.61,.36,1), transform .45s cubic-bezier(.22,.61,.36,1);
+                transition: opacity .42s cubic-bezier(.22,.61,.36,1), transform .42s cubic-bezier(.22,.61,.36,1);
             }
             h1 { letter-spacing: -0.03em !important; }
             .hero-mobile-title { font-size: 2.2rem !important; line-height: 1.02 !important; }
             .app-shell { padding-left: 16px !important; padding-right: 16px !important; }
+            .app-card,
+            .app-soft-card,
+            .big-number-card,
+            .testimonial-mobile-card,
+            .hero-event-grid,
+            .mobile-sticky-cta > div {
+                background: var(--nubank-card-bg) !important;
+                border: 1px solid var(--nubank-card-border) !important;
+                box-shadow: var(--nubank-shadow) !important;
+                backdrop-filter: blur(16px);
+            }
             .app-card {
-                border-radius: 28px !important;
-                box-shadow: 0 14px 34px rgba(0,0,0,.22) !important;
-                transition: transform .28s ease, box-shadow .28s ease, opacity .28s ease;
+                border-radius: 30px !important;
+                transition: transform .24s ease, box-shadow .24s ease, opacity .24s ease;
             }
-            .app-pill { border-radius: 999px !important; }
+            .app-pill {
+                border-radius: 999px !important;
+                background: rgba(255,255,255,.045) !important;
+            }
             .app-soft-card {
-                border-radius: 24px !important;
-                box-shadow: 0 10px 28px rgba(0,0,0,.18) !important;
-                transition: transform .28s ease, box-shadow .28s ease, opacity .28s ease;
+                border-radius: 26px !important;
+                transition: transform .24s ease, box-shadow .24s ease, opacity .24s ease;
             }
-            .app-input { border-radius: 18px !important; padding-top: 16px !important; padding-bottom: 16px !important; }
-            .app-btn {
+            .app-input {
                 border-radius: 18px !important;
-                min-height: 56px;
-                transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+                padding-top: 16px !important;
+                padding-bottom: 16px !important;
             }
-            .app-icon-box { border-radius: 18px !important; }
+            .glass-input {
+                background: rgba(255,255,255,.05);
+                border-color: rgba(255,255,255,.08);
+                box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+            }
+            .app-btn {
+                border-radius: 20px !important;
+                min-height: 58px;
+                transition: transform .16s ease, box-shadow .16s ease, filter .16s ease;
+                box-shadow: 0 12px 26px rgba(126,34,206,.22);
+            }
+            .app-icon-box {
+                border-radius: 20px !important;
+                background: rgba(255,255,255,.055) !important;
+            }
             .stack-mobile > * + * { margin-top: 12px !important; }
             .hero-event-grid {
                 display: grid !important;
                 grid-template-columns: repeat(3, minmax(0, 1fr));
                 gap: 10px !important;
                 text-align: center;
-                border-radius: 24px !important;
-                background: rgba(255,255,255,.04) !important;
-                box-shadow: 0 10px 30px rgba(0,0,0,.18);
+                border-radius: 26px !important;
             }
             .hero-event-grid .divider-mobile { display: none !important; }
             .hero-event-grid > div { flex-direction: column !important; gap: 6px !important; }
             .testimonial-mobile-card {
-                background: rgba(255,255,255,.04);
-                border: 1px solid rgba(255,255,255,.08);
-                border-radius: 28px;
+                border-radius: 30px;
                 padding: 24px 20px;
-                backdrop-filter: blur(14px);
-                box-shadow: 0 10px 30px rgba(0,0,0,.22);
-                transition: transform .28s ease, box-shadow .28s ease, opacity .28s ease;
+                transition: transform .24s ease, box-shadow .24s ease, opacity .24s ease;
             }
             #btn-prev, #btn-next {
-                width: 42px !important;
-                height: 42px !important;
-                background: rgba(17,17,17,.8) !important;
-                backdrop-filter: blur(10px);
-                transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+                width: 44px !important;
+                height: 44px !important;
+                background: rgba(17,17,17,.82) !important;
+                border: 1px solid rgba(255,255,255,.08) !important;
+                box-shadow: 0 8px 22px rgba(0,0,0,.26);
+                backdrop-filter: blur(14px);
+                transition: transform .16s ease, box-shadow .16s ease, background-color .16s ease;
             }
             .big-number-card {
                 justify-content: center !important;
@@ -221,15 +248,21 @@
             .big-number-value {
                 display: block !important;
                 width: 100% !important;
-                line-height: 1.05 !important;
+                line-height: 1.03 !important;
+                letter-spacing: -0.02em;
+            }
+            .big-number-card .text-[11px] {
+                font-size: 10px !important;
+                letter-spacing: .18em !important;
             }
 
             .touch-lift:active,
             .app-soft-card:active,
             .app-card:active,
             .testimonial-mobile-card:active,
-            .big-number-card:active {
-                transform: scale(.985);
+            .big-number-card:active,
+            .hero-event-grid:active {
+                transform: scale(.985) translateY(1px);
                 box-shadow: 0 8px 20px rgba(0,0,0,.2) !important;
             }
             .app-btn:active,
@@ -240,13 +273,32 @@
                 transform: scale(.97);
                 filter: brightness(.98);
             }
-
             .mobile-sticky-cta {
                 animation: mobileCtaFloat .7s cubic-bezier(.22,.61,.36,1);
+            }
+            .mobile-sticky-cta > div {
+                border-radius: 26px !important;
+                padding: 8px !important;
+            }
+            .mobile-sticky-cta button {
+                position: relative;
+                overflow: hidden;
+            }
+            .mobile-sticky-cta button::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+                transform: translateX(-120%);
+                animation: ctaSheenMobile 3.4s ease-in-out infinite;
             }
             @keyframes mobileCtaFloat {
                 from { transform: translateY(18px); opacity: 0; }
                 to { transform: translateY(0); opacity: 1; }
+            }
+            @keyframes ctaSheenMobile {
+                0%, 72% { transform: translateX(-120%); }
+                100% { transform: translateX(120%); }
             }
 
             .app-soft-card:hover,
