@@ -1,122 +1,307 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Carreira em Escala | A Imersão Definitiva para Assessores</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carreira em Escala | A Imersão Definitiva para Assessores</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            heading: ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            purple: {
-              400: '#C084FC',
-              500: '#A855F7',
-              600: '#9333EA',
-              700: '#7E22CE',
-            },
-            dark: {
-              800: '#1A1A1A',
-              900: '#111111',
-              950: '#080808',
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        purple: {
+                            400: '#C084FC',
+                            500: '#A855F7',
+                            600: '#9333EA',
+                            700: '#7E22CE',
+                        },
+                        dark: {
+                            800: '#1A1A1A',
+                            900: '#111111',
+                            950: '#080808',
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-glow': 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(8, 8, 8, 1) 60%)',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'slide-left': 'slide-left linear infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'slide-left': {
+                            '0%': { transform: 'translateX(100vw)' },
+                            '100%': { transform: 'translateX(-150vw)' },
+                        }
+                    }
+                }
             }
-          },
-          backgroundImage: {
-            'hero-glow': 'radial-gradient(circle at center, rgba(168, 85, 247, 0.12) 0%, rgba(8, 8, 8, 1) 60%)',
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'slide-left': 'slide-left linear infinite',
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0)' },
-              '50%': { transform: 'translateY(-20px)' },
-            },
-            'slide-left': {
-              '0%': { transform: 'translateX(100vw)' },
-              '100%': { transform: 'translateX(-150vw)' },
-            }
-          }
         }
-      }
-    }
-  </script>
+    </script>
 
-  <style>
-    .radio-label {
-      cursor: pointer;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-    }
-    .radio-input:checked + .radio-label {
-      background: linear-gradient(135deg, #9333EA 0%, #A855F7 100%);
-      border-color: #C084FC;
-      color: #fff;
-      box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
-    }
-    .carousel-item {
-      transform-origin: center;
-    }
-    .carousel-item.active {
-      opacity: 1;
-      z-index: 10;
-      transform: translateX(0) scale(1);
-      pointer-events: auto;
-    }
-    .carousel-item.prev {
-      opacity: 0.3;
-      z-index: 0;
-      transform: translateX(-120%) scale(0.75);
-      pointer-events: none;
-    }
-    .carousel-item.next {
-      opacity: 0.3;
-      z-index: 0;
-      transform: translateX(120%) scale(0.75);
-      pointer-events: none;
-    }
-    .carousel-item.hidden-item {
-      opacity: 0;
-      z-index: -1;
-      transform: translateX(0) scale(0);
-      pointer-events: none;
-    }
-    @media (max-width: 768px) {
-      .carousel-item.prev, .carousel-item.next {
-        opacity: 0;
-        visibility: hidden;
-      }
-    }
-    .glass-input {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-    }
-    .glass-input:focus {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: #A855F7;
-      box-shadow: 0 0 0 1px #A855F7;
-    }
-  </style>
+    <style>
+        /* Custom Styles for Radio Buttons - Premium Toggle Look */
+        .radio-label {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .radio-input:checked + .radio-label {
+            background: linear-gradient(135deg, #9333EA 0%, #A855F7 100%);
+            border-color: #C084FC;
+            color: #fff;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+        }
+
+        /* Carousel Styles */
+        .carousel-item {
+            transform-origin: center;
+        }
+        .carousel-item.active {
+            opacity: 1;
+            z-index: 10;
+            transform: translateX(0) scale(1);
+            pointer-events: auto;
+        }
+        .carousel-item.prev {
+            opacity: 0.3;
+            z-index: 0;
+            transform: translateX(-120%) scale(0.75);
+            pointer-events: none;
+        }
+        .carousel-item.next {
+            opacity: 0.3;
+            z-index: 0;
+            transform: translateX(120%) scale(0.75);
+            pointer-events: none;
+        }
+        .carousel-item.hidden-item {
+            opacity: 0;
+            z-index: -1;
+            transform: translateX(0) scale(0);
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item.prev, .carousel-item.next {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Custom Glassmorphism Input */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+        .glass-input:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: #A855F7;
+            box-shadow: 0 0 0 1px #A855F7;
+        }
+    </style>
 </head>
 <body class="bg-dark-950 text-white font-sans antialiased selection:bg-purple-500 selection:text-white overflow-x-hidden">
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+
+    <!-- TOP ANNOUNCEMENT BAR -->
+    <div class="w-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 py-2.5 text-center px-4 relative z-50">
+        <p class="text-xs md:text-sm font-medium text-white tracking-wide">
+            <span class="font-bold">Aviso:</span> As vagas para a nova turma são estritamente limitadas. Garanta seu acesso.
+        </p>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-10 pb-20 lg:pt-16 lg:pb-32 overflow-hidden bg-dark-950 z-10 border-b border-white/5">
+        <!-- Imagem de fundo suave (Linhas Abstratas Corporativas) -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-[0.03] mix-blend-screen pointer-events-none -z-20"></div>
+        
+        <!-- Background Glow behind the person -->
+        <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-hero-glow z-0 pointer-events-none -z-10"></div>
+
+        <!-- Animação Tela de Trader (Fundo Institucional) -->
+        <div id="home-broker-bg" class="absolute inset-0 overflow-hidden opacity-[0.08] font-mono text-[10px] sm:text-xs z-0 pointer-events-none flex flex-wrap gap-x-8 gap-y-3 p-4 content-start" style="-webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 90%); mask-image: linear-gradient(to bottom, black 30%, transparent 90%);"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 mt-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-12">
+                
+                <!-- Left Content -->
+                <div class="w-full lg:w-1/2 flex flex-col items-start text-left" data-aos="fade-right">
+                    <div class="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-lg">
+                        <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
+                        <p class="text-gray-200 font-semibold text-[11px] md:text-xs tracking-widest uppercase mt-0.5">
+                            Masterclass Exclusiva e Gratuita
+                        </p>
+                    </div>
+                    
+                    <h1 class="font-heading text-4xl md:text-5xl lg:text-7xl font-black leading-[1.1] tracking-tight mb-6">
+                        CARREIRA <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-600">EM ESCALA</span>
+                    </h1>
+                    
+                    <p class="text-base lg:text-lg text-gray-300 font-light mb-8 max-w-lg leading-relaxed">
+                        A oportunidade definitiva para profissionais que buscam crescer com <strong class="text-white font-medium">autonomia, escala e receita recorrente</strong> no mercado financeiro de alto nível.
+                    </p>
+
+                    <!-- Event Details (Premium Layout) -->
+                    <div class="flex flex-wrap items-center gap-5 text-sm text-gray-300 mb-10 font-medium bg-dark-900/50 p-4 rounded-xl border border-white/5 backdrop-blur-sm w-full max-w-md">
+                        <div class="flex items-center gap-2.5">
+                            <i class="ph-fill ph-calendar-blank text-purple-400 text-xl"></i>
+                            <span>15 DE MAIO</span>
+                        </div>
+                        <div class="w-px h-6 bg-white/10"></div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="ph-fill ph-clock text-purple-400 text-xl"></i>
+                            <span>20H</span>
+                        </div>
+                        <div class="w-px h-6 bg-white/10"></div>
+                        <div class="flex items-center gap-2.5">
+                            <i class="ph-fill ph-desktop text-purple-400 text-xl"></i>
+                            <span>AO VIVO</span>
+                        </div>
+                    </div>
+
+                    <!-- Opt-in Form (Glassmorphism) -->
+                    <form class="w-full max-w-md bg-white/[0.02] p-6 lg:p-8 rounded-2xl border border-white/10 backdrop-blur-xl shadow-2xl relative" data-aos="fade-up" data-aos-delay="200" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');">
+                        <div class="absolute -top-3 right-6 bg-purple-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-[0_0_10px_rgba(147,51,234,0.5)]">
+                            Vagas Limitadas
+                        </div>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="relative">
+                                <i class="ph-fill ph-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
+                                <input type="text" placeholder="Nome Completo" required
+                                    class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
+                            </div>
+                            <div class="relative">
+                                <i class="ph-fill ph-envelope-simple absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
+                                <input type="email" placeholder="E-mail principal" required
+                                    class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
+                            </div>
+                            <div class="relative">
+                                <i class="ph-fill ph-whatsapp-logo absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
+                                <input type="tel" placeholder="WhatsApp (com DDD)" required
+                                    class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
+                            </div>
+                            
+                            <div class="pt-2">
+                                <p class="text-sm text-gray-300 mb-3 font-medium">Você possui certificação Ancord?</p>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="relative w-full">
+                                        <input type="radio" name="ancord" id="sim" value="sim" class="radio-input hidden" checked>
+                                        <label for="sim" class="radio-label block text-center bg-dark-900 text-gray-400 text-sm font-medium py-2.5 rounded-lg hover:bg-white/5">Sim, possuo</label>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <input type="radio" name="ancord" id="nao" value="nao" class="radio-input hidden">
+                                        <label for="nao" class="radio-label block text-center bg-dark-900 text-gray-400 text-sm font-medium py-2.5 rounded-lg hover:bg-white/5">Ainda não</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="group w-full bg-gradient-to-r from-purple-700 to-purple-500 text-white font-bold py-4 rounded-lg hover:from-purple-600 hover:to-purple-400 transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] uppercase tracking-wider text-sm flex items-center justify-center gap-2">
+                            Garantir Minha Vaga
+                            <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        
+                        <p class="text-[11px] text-gray-500 text-center mt-5 flex items-center justify-center gap-1.5 opacity-80">
+                            <i class="ph-fill ph-shield-check text-purple-400 text-sm"></i> Suas informações estão seguras.
+                        </p>
+                    </form>
+                </div>
+
+                <!-- Right Content (Image) -->
+                <div class="w-full lg:w-1/2 flex justify-center items-end relative min-h-[450px] lg:min-h-[650px] mt-12 lg:mt-0" data-aos="fade-left" data-aos-delay="100">
+                    
+                    <!-- Brilho difuso atrás do especialista -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-purple-600/15 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+
+                    <!-- Imagem Premium com fade natural -->
+                    <div class="relative z-10 w-full max-w-[500px] mx-auto flex justify-center">
+                        <img src="data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 1000'%3E%3Cpath fill='%234b5563' d='M400 200c-66.3 0-120 53.7-120 120s53.7 120 120 120 120-53.7 120-120-53.7-120-120-120zm0 280c-132.5 0-240 107.5-240 240v280h480V720c0-132.5-107.5-240-240-240z'/%3E%3C/svg%3E" 
+                             alt="Samyr Castro" 
+                             class="w-full object-cover transition-all duration-700 drop-shadow-[0_0_40px_rgba(168,85,247,0.15)]"
+                             style="-webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%); mask-image: linear-gradient(to bottom, black 70%, transparent 100%);">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Initialize AOS and Scripts -->
+    <script>
+        AOS.init({ once: true, offset: 50, duration: 800, easing: 'ease-out-cubic' });
+
+        function initTraderScreen() {
+            const bg = document.getElementById('home-broker-bg');
+            if (!bg) return;
+            const tickers = ['WINV24', 'WDOV24', 'PETR4', 'VALE3', 'ITUB4', 'BBDC4', 'B3SA3', 'ABEV3', 'WEGE3', 'ELET3', 'RENT3', 'BBAS3', 'MGLU3', 'RADL3', 'VIVT3', 'SUZB3', 'EQTL3', 'CSNA3', 'USIM5', 'GGBR4'];
+            const numItems = 100;
+            const elements = [];
+            for(let i=0; i<numItems; i++) {
+                const ticker = tickers[Math.floor(Math.random() * tickers.length)];
+                const price = (Math.random() * 100).toFixed(2);
+                const el = document.createElement('div');
+                el.className = 'flex items-center gap-1.5 text-gray-700 transition-colors duration-300';
+                el.innerHTML = `<span class="font-bold opacity-30">${ticker}</span><span class="price opacity-50">${price}</span><span class="arrow text-[8px] opacity-0 transition-opacity">▲</span>`;
+                bg.appendChild(el);
+                elements.push({ dom: el, priceSpan: el.querySelector('.price'), arrowSpan: el.querySelector('.arrow'), price: parseFloat(price) });
+            }
+            setInterval(() => {
+                const numUpdates = Math.floor(Math.random() * 8) + 3;
+                for(let i=0; i<numUpdates; i++) {
+                    const idx = Math.floor(Math.random() * elements.length);
+                    const item = elements[idx];
+                    const change = (Math.random() * 3) - 1.5;
+                    item.price = Math.max(0.1, item.price + change);
+                    item.priceSpan.innerText = item.price.toFixed(2);
+                    if (change > 0) {
+                        item.dom.classList.add('text-green-500/50');
+                        item.dom.classList.remove('text-gray-700', 'text-red-500/50');
+                        item.arrowSpan.innerText = '▲';
+                        item.arrowSpan.classList.remove('opacity-0');
+                    } else {
+                        item.dom.classList.add('text-red-500/50');
+                        item.dom.classList.remove('text-gray-700', 'text-green-500/50');
+                        item.arrowSpan.innerText = '▼';
+                        item.arrowSpan.classList.remove('opacity-0');
+                    }
+                    setTimeout(() => {
+                        if(item.dom) {
+                            item.dom.classList.remove('text-green-500/50', 'text-red-500/50');
+                            item.dom.classList.add('text-gray-700');
+                            item.arrowSpan.classList.add('opacity-0');
+                        }
+                    }, 800);
+                }
+            }, 150);
+        }
+        document.addEventListener('DOMContentLoaded', () => { initTraderScreen(); });
+    </script>
 </body>
 </html>
