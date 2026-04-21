@@ -134,6 +134,20 @@
                 background: rgba(17,17,17,.8) !important;
                 backdrop-filter: blur(10px);
             }
+            .big-number-card {
+                justify-content: center !important;
+                text-align: center !important;
+                align-items: center !important;
+            }
+            .big-number-content {
+                text-align: center !important;
+                width: 100% !important;
+            }
+            .big-number-value {
+                display: block !important;
+                width: 100% !important;
+                line-height: 1.05 !important;
+            }
         }
     </style>
 </head>
@@ -248,9 +262,9 @@
                     </div>
                 </div>
                 <div id="stats-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full" data-aos="fade-up" data-aos-delay="200">
-                    <div class="rounded-2xl app-soft-card p-6 lg:p-8 flex items-center justify-center lg:justify-start gap-5 bg-gradient-to-r from-dark-900 to-dark-950 border border-white/5 shadow-lg relative overflow-hidden group"><div class="w-16 h-16 flex items-center justify-center bg-white/5 app-icon-box rounded-xl text-purple-400 shrink-0 border border-white/10"><i class="ph-fill ph-chart-bar text-4xl"></i></div><div class="relative z-10 text-left"><div class="font-heading font-black text-3xl md:text-4xl text-white">+R$ <span class="counter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" data-target="30">0</span> BI</div><div class="text-[11px] lg:text-xs text-purple-400 uppercase tracking-[0.15em] font-bold mt-1">Sob Custódia</div></div></div>
-                    <div class="rounded-2xl app-soft-card p-6 lg:p-8 flex items-center justify-center lg:justify-start gap-5 bg-gradient-to-r from-dark-900 to-dark-950 border border-white/5 shadow-lg relative overflow-hidden group"><div class="w-16 h-16 flex items-center justify-center bg-white/5 app-icon-box rounded-xl text-purple-400 shrink-0 border border-white/10"><i class="ph-fill ph-users-three text-4xl"></i></div><div class="relative z-10 text-left"><div class="font-heading font-black text-3xl md:text-4xl text-white">+<span class="counter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" data-target="200">0</span> MIL</div><div class="text-[11px] lg:text-xs text-purple-400 uppercase tracking-[0.15em] font-bold mt-1">Clientes Ativos</div></div></div>
-                    <div class="rounded-2xl app-soft-card p-6 lg:p-8 flex items-center justify-center lg:justify-start gap-5 bg-gradient-to-r from-dark-900 to-dark-950 border border-white/5 shadow-lg relative overflow-hidden group"><div class="w-16 h-16 flex items-center justify-center bg-white/5 app-icon-box rounded-xl text-purple-400 shrink-0 border border-white/10"><i class="ph-fill ph-user-focus text-4xl"></i></div><div class="relative z-10 text-left"><div class="font-heading font-black text-3xl md:text-4xl text-white">+<span class="counter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" data-target="2000">0</span></div><div class="text-[11px] lg:text-xs text-purple-400 uppercase tracking-[0.15em] font-bold mt-1">Profissionais Liderados</div></div></div>
+                    <div class="big-number-card rounded-2xl app-soft-card p-6 lg:p-8 flex items-center justify-center lg:justify-start gap-5 bg-gradient-to-r from-dark-900 to-dark-950 border border-white/5 shadow-lg relative overflow-hidden group"><div class="w-16 h-16 flex items-center justify-center bg-white/5 app-icon-box rounded-xl text-purple-400 shrink-0 border border-white/10"><i class="ph-fill ph-chart-bar text-4xl"></i></div><div class="big-number-content relative z-10 text-left"><div class="big-number-value font-heading font-black text-3xl md:text-4xl text-white">+R$ <span class="counter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" data-target="30">0</span> BI</div><div class="text-[11px] lg:text-xs text-purple-400 uppercase tracking-[0.15em] font-bold mt-1">Sob Custódia</div></div></div>
+                    <div class="big-number-card rounded-2xl app-soft-card p-6 lg:p-8 flex items-center justify-center lg:justify-start gap-5 bg-gradient-to-r from-dark-900 to-dark-950 border border-white/5 shadow-lg relative overflow-hidden group"><div class="w-16 h-16 flex items-center justify-center bg-white/5 app-icon-box rounded-xl text-purple-400 shrink-0 border border-white/10"><i class="ph-fill ph-users-three text-4xl"></i></div><div class="big-number-content relative z-10 text-left"><div class="big-number-value font-heading font-black text-3xl md:text-4xl text-white">+<span class="counter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" data-target="200">0</span> MIL</div><div class="text-[11px] lg:text-xs text-purple-400 uppercase tracking-[0.15em] font-bold mt-1">Clientes Ativos</div></div></div>
+                    <div class="big-number-card rounded-2xl app-soft-card p-6 lg:p-8 flex items-center justify-center lg:justify-start gap-5 bg-gradient-to-r from-dark-900 to-dark-950 border border-white/5 shadow-lg relative overflow-hidden group"><div class="w-16 h-16 flex items-center justify-center bg-white/5 app-icon-box rounded-xl text-purple-400 shrink-0 border border-white/10"><i class="ph-fill ph-user-focus text-4xl"></i></div><div class="big-number-content relative z-10 text-left"><div class="big-number-value font-heading font-black text-3xl md:text-4xl text-white">+<span class="counter text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400" data-target="2000">0</span></div><div class="text-[11px] lg:text-xs text-purple-400 uppercase tracking-[0.15em] font-bold mt-1">Profissionais Liderados</div></div></div>
                 </div>
             </div>
         </div>
