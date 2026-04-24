@@ -59,6 +59,118 @@
     </script>
 
     <style>
+
+.hero-visual-shell {
+    min-height: 720px;
+    overflow: visible;
+}
+
+.hero-apple-stage {
+    position: relative;
+    width: 100%;
+    min-height: 720px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: visible;
+}
+
+.hero-apple-glow {
+    position: absolute;
+    inset: 6% -14% -7% -10%;
+    background: radial-gradient(
+        circle at 54% 46%,
+        rgba(192,132,252,.34) 0%,
+        rgba(126,34,206,.20) 30%,
+        rgba(8,8,8,0) 70%
+    );
+    filter: blur(34px);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-samyr-wrap {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 760px;
+    transform: translateX(36px) scale(1.15);
+    overflow: visible;
+    isolation: isolate;
+}
+
+.hero-samyr-photo {
+    display: block;
+    width: 138%;
+    max-width: none;
+    object-fit: contain;
+    object-position: center bottom;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    transform: scale(1.05);
+    filter: brightness(1.07) contrast(1.05) saturate(1.04);
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 52%,
+            rgba(0,0,0,.90) 63%,
+            rgba(0,0,0,.62) 76%,
+            rgba(0,0,0,.28) 89%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to right,
+            transparent 0%,
+            #000 20%,
+            #000 80%,
+            transparent 100%
+        );
+    -webkit-mask-composite: source-in;
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 52%,
+            rgba(0,0,0,.90) 63%,
+            rgba(0,0,0,.62) 76%,
+            rgba(0,0,0,.28) 89%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to right,
+            transparent 0%,
+            #000 20%,
+            #000 80%,
+            transparent 100%
+        );
+    mask-composite: intersect;
+}
+
+.hero-samyr-wrap::after {
+    content: '';
+    position: absolute;
+    left: -14%;
+    right: -18%;
+    bottom: -46px;
+    height: 76%;
+    background: linear-gradient(
+        to top,
+        #080808 0%,
+        rgba(8,8,8,1) 14%,
+        rgba(8,8,8,.88) 30%,
+        rgba(8,8,8,.58) 50%,
+        rgba(8,8,8,.26) 72%,
+        rgba(8,8,8,0) 100%
+    );
+    z-index: 3;
+    pointer-events: none;
+}
+
+        
         html { -webkit-tap-highlight-color: transparent; }
         .radio-label {
             cursor: pointer;
@@ -157,6 +269,70 @@
                 --apple-shadow-strong: 0 18px 44px rgba(0,0,0,.24);
                 --apple-inset: inset 0 1px 0 rgba(255,255,255,.05);
             }
+
+            .hero-visual-shell,
+.hero-apple-stage {
+    min-height: 470px;
+}
+
+.hero-apple-glow {
+    inset: 7% -20% -8% -20%;
+    filter: blur(26px);
+}
+
+.hero-samyr-wrap {
+    max-width: 470px;
+    transform: translateX(0) scale(1.15);
+}
+
+.hero-samyr-photo {
+    width: 146%;
+    margin-left: -14%;
+
+    -webkit-mask-image:
+        linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 52%,
+            rgba(0,0,0,.86) 66%,
+            rgba(0,0,0,.50) 82%,
+            rgba(0,0,0,.15) 94%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to right,
+            transparent 0%,
+            #000 26%,
+            #000 74%,
+            transparent 100%
+        );
+
+    mask-image:
+        linear-gradient(
+            to bottom,
+            #000 0%,
+            #000 52%,
+            rgba(0,0,0,.86) 66%,
+            rgba(0,0,0,.50) 82%,
+            rgba(0,0,0,.15) 94%,
+            transparent 100%
+        ),
+        linear-gradient(
+            to right,
+            transparent 0%,
+            #000 26%,
+            #000 74%,
+            transparent 100%
+        );
+}
+
+.hero-samyr-wrap::after {
+    height: 78%;
+    bottom: -48px;
+    left: -18%;
+    right: -20%;
+}
+            
             html, body { scroll-behavior: smooth; }
             body { padding-bottom: 104px; }
             section, footer { overflow: hidden; }
