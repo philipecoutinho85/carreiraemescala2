@@ -126,7 +126,7 @@
         }
     </style>
 </head>
-<body class="bg-dark-950 text-white font-sans antialiased selection:bg-purple-500 selection:text-white overflow-x-hidden">
+<body class="bg-dark-950 text-white font-sans antialiased selection:bg-purple-500 selection:text-white overflow-x-hidden w-full relative">
 
     <!-- TOP ANNOUNCEMENT BAR -->
     <div class="w-full bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 py-2.5 text-center px-4 relative z-50">
@@ -146,13 +146,11 @@
         <!-- Animação Tela de Trader (Fundo Institucional) -->
         <div id="home-broker-bg" class="absolute inset-0 overflow-hidden opacity-[0.08] font-mono text-[10px] sm:text-xs z-0 pointer-events-none flex flex-wrap gap-x-8 gap-y-3 p-4 content-start" style="-webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 90%); mask-image: linear-gradient(to bottom, black 30%, transparent 90%);"></div>
 
-        <!-- Correção: Removido px-4 do container pai para permitir que o formulário encoste nas bordas naturalmente no mobile -->
         <div class="max-w-7xl mx-auto sm:px-6 relative z-10 mt-4 lg:mt-8">
             <!-- Layout Grid (Mobile App-like Stack vs Desktop Split) -->
             <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 items-center">
                 
                 <!-- 1. Left Content (Text - Top on Mobile, Top Left on Desktop) -->
-                <!-- Correção: Adicionado px-6 diretamente ao bloco de texto -->
                 <div class="flex flex-col items-start text-left z-20 lg:col-start-1 lg:row-start-1 order-1 lg:order-none px-6 sm:px-0" data-aos="fade-right">
                     <div class="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-lg">
                         <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
@@ -190,7 +188,6 @@
                 </div>
 
                 <!-- 2. Right Content (Image - Middle on Mobile, Right Span on Desktop) -->
-                <!-- Correção: Adicionado px-6 diretamente ao bloco da imagem -->
                 <div class="w-full flex justify-center items-center relative h-[380px] sm:h-[450px] lg:h-auto lg:min-h-[750px] lg:col-start-2 lg:row-start-1 lg:row-span-2 mt-4 lg:mt-0 z-10 order-2 lg:order-none shrink-0 px-6 sm:px-0" data-aos="fade-up" data-aos-delay="100">
                     
                     <!-- Brilho difuso atrás do especialista -->
@@ -199,15 +196,18 @@
                     <!-- Imagem Premium com máscara 100% Círculo Perfeito para evitar margens retas -->
                     <div class="relative z-10 w-full h-full max-w-[400px] lg:max-w-[800px] mx-auto flex justify-center items-center lg:scale-110 lg:origin-bottom lg:translate-x-4">
                         <img src="samyr_castro_hero.png" 
+                             alt="Samyr Castro" 
+                             class="relative z-10 w-full h-full object-contain object-center transition-all duration-700 drop-shadow-[0_0_50px_rgba(168,85,247,0.2)]"
+                             style="-webkit-mask-image: radial-gradient(circle at 50% 50%, black 55%, transparent 85%); mask-image: radial-gradient(circle at 50% 50%, black 55%, transparent 85%); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
+                        
                         <!-- Efeito Fading Inferior Absoluto extra (Para suavizar o corte inferior no desktop) -->
                         <div class="absolute bottom-0 left-0 w-full h-[40%] bg-gradient-to-t from-dark-950 via-dark-950/80 to-transparent z-20 pointer-events-none hidden lg:block"></div>
                     </div>
                 </div>
 
                 <!-- 3. Form Content (Bottom Sheet on Mobile, Bottom Left on Desktop) -->
-                <!-- Correção: Removidos todos os hacks de margens negativas (-mx-4). Apenas w-full. -->
                 <div class="w-full relative z-30 order-3 lg:order-none lg:col-start-1 lg:row-start-2 sm:px-0">
-                    <!-- Form Wrapper for App-like look on Mobile. Adicionado border-x-0 no mobile para tocar as laterais sem linhas -->
+                    <!-- Form Wrapper for App-like look on Mobile. -->
                     <form id="cadastro-form" class="w-full sm:max-w-md mx-auto lg:mx-0 bg-dark-950/95 lg:bg-white/[0.02] p-6 pb-8 lg:p-8 lg:pb-8 rounded-t-[2.5rem] sm:rounded-2xl border border-white/10 border-x-0 border-b-0 sm:border-x lg:border-b backdrop-blur-2xl shadow-[0_-20px_50px_rgba(0,0,0,0.6)] lg:shadow-2xl relative -mt-10 lg:mt-0" data-aos="fade-up" data-aos-delay="200" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');">
                         
                         <!-- Mobile Drag Handle UI (Indicador de gaveta subindo) -->
@@ -398,7 +398,6 @@
     </section>
 
     <!-- ABOUT SPEAKER SECTION (HIGH AUTHORITY) -->
-    <!-- Correção: Adicionado overflow-hidden para evitar scroll lateral indesejado devido a brilhos soltos -->
     <section class="py-16 lg:py-24 relative bg-dark-950 z-10 border-t border-white/5 overflow-hidden">
         <!-- Imagem de fundo corporativa (Parallax Premium) -->
         <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-fixed bg-center opacity-[0.04] mix-blend-luminosity pointer-events-none -z-20"></div>
@@ -681,8 +680,9 @@
     </footer>
 
     <!-- MOBILE STICKY CTA (Sempre visível em telemóvel) -->
-    <div class="fixed bottom-0 left-0 w-full p-4 bg-dark-950/90 backdrop-blur-lg border-t border-white/10 z-[100] lg:hidden shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-        <button onclick="document.getElementById('cadastro-form').scrollIntoView({behavior: 'smooth', block: 'center'})" class="w-full bg-gradient-to-r from-purple-700 to-purple-500 text-white font-bold py-3.5 rounded-xl hover:from-purple-600 hover:to-purple-400 transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] uppercase tracking-wider text-sm flex items-center justify-center gap-2">
+    <!-- Correção: Usando inset-x-0 e px-4 para evitar estouro da margem direita -->
+    <div class="fixed bottom-0 inset-x-0 p-4 pb-5 bg-dark-950/95 backdrop-blur-xl border-t border-white/10 z-[100] lg:hidden shadow-[0_-15px_35px_rgba(0,0,0,0.6)] flex justify-center box-border">
+        <button onclick="document.getElementById('cadastro-form').scrollIntoView({behavior: 'smooth', block: 'center'})" class="w-full max-w-[calc(100vw-2rem)] sm:max-w-md bg-gradient-to-r from-purple-700 to-purple-500 text-white font-bold py-4 rounded-xl hover:from-purple-600 hover:to-purple-400 transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] uppercase tracking-wider text-sm flex items-center justify-center gap-2">
             Garantir Minha Vaga
             <i class="ph-bold ph-arrow-up transition-transform"></i>
         </button>
