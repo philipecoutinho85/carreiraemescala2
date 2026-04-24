@@ -136,9 +136,9 @@
     </div>
 
     <!-- HERO SECTION -->
-    <section class="relative pt-8 pb-16 lg:pt-16 lg:pb-32 overflow-hidden bg-dark-950 z-10 border-b border-white/5">
-        <!-- Imagem de fundo suave (Linhas Abstratas Corporativas) -->
-        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=2000')] bg-cover bg-center opacity-[0.03] mix-blend-screen pointer-events-none -z-20"></div>
+    <section class="relative pt-8 pb-0 lg:pt-16 lg:pb-32 overflow-hidden bg-dark-950 z-10 border-b border-white/5 flex flex-col min-h-screen lg:min-h-0 lg:block">
+        <!-- Fundo escuro limpo (Imagem de equações matemáticas removida) -->
+        <div class="absolute inset-0 bg-dark-950 pointer-events-none -z-20"></div>
         
         <!-- Background Glow behind the person -->
         <div class="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-hero-glow z-0 pointer-events-none -z-10"></div>
@@ -146,12 +146,12 @@
         <!-- Animação Tela de Trader (Fundo Institucional) -->
         <div id="home-broker-bg" class="absolute inset-0 overflow-hidden opacity-[0.08] font-mono text-[10px] sm:text-xs z-0 pointer-events-none flex flex-wrap gap-x-8 gap-y-3 p-4 content-start" style="-webkit-mask-image: linear-gradient(to bottom, black 30%, transparent 90%); mask-image: linear-gradient(to bottom, black 30%, transparent 90%);"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 mt-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10 mt-2 flex-1 flex flex-col lg:block">
             <!-- Layout Grid (Mobile App-like Stack vs Desktop Split) -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-x-12 items-center flex-1">
                 
                 <!-- 1. Left Content (Text - Top on Mobile, Top Left on Desktop) -->
-                <div class="flex flex-col items-start text-left z-20 lg:col-start-1 lg:row-start-1">
+                <div class="flex flex-col items-start text-left z-20 lg:col-start-1 lg:row-start-1 order-1 lg:order-none mt-4 lg:mt-0">
                     <div class="inline-flex items-center gap-2.5 bg-white/5 border border-white/10 px-4 py-2 rounded-full mb-6 backdrop-blur-md shadow-lg">
                         <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]"></span>
                         <p class="text-gray-200 font-semibold text-[11px] md:text-xs tracking-widest uppercase mt-0.5">
@@ -169,7 +169,7 @@
                     </p>
 
                     <!-- Event Details -->
-                    <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs sm:text-sm text-gray-300 mb-6 lg:mb-10 font-medium bg-dark-900/50 p-4 rounded-xl border border-white/5 backdrop-blur-sm w-full max-w-md">
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-5 text-xs sm:text-sm text-gray-300 mb-2 lg:mb-10 font-medium bg-dark-900/50 p-4 rounded-xl border border-white/5 backdrop-blur-sm w-full max-w-md">
                         <div class="flex items-center gap-2.5">
                             <i class="ph-fill ph-calendar-blank text-purple-400 text-lg sm:text-xl"></i>
                             <span>15 DE MAIO</span>
@@ -188,74 +188,74 @@
                 </div>
 
                 <!-- 2. Right Content (Image - Middle on Mobile, Right Span on Desktop) -->
-                <div class="w-full flex justify-center items-end relative min-h-[350px] sm:min-h-[450px] lg:min-h-[750px] lg:col-start-2 lg:row-start-1 lg:row-span-2 -mt-4 lg:mt-0 z-10" data-aos="fade-left" data-aos-delay="100">
+                <div class="w-full flex justify-center items-center relative h-[380px] sm:h-[450px] lg:h-auto lg:min-h-[750px] lg:col-start-2 lg:row-start-1 lg:row-span-2 mt-4 lg:mt-0 z-10 order-2 lg:order-none" data-aos="fade-left" data-aos-delay="100">
                     
                     <!-- Brilho difuso atrás do especialista -->
-                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[100%] lg:w-[90%] h-[100%] lg:h-[90%] bg-purple-600/20 blur-[90px] lg:blur-[120px] rounded-full z-0 pointer-events-none"></div>
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] bg-purple-600/20 blur-[80px] lg:blur-[120px] rounded-full z-0 pointer-events-none"></div>
 
-                    <!-- Imagem Premium com fade 100% redondo e suave -->
-                    <div class="relative z-10 w-full max-w-[500px] lg:max-w-[800px] mx-auto flex justify-center lg:scale-110 lg:origin-bottom lg:translate-x-4">
+                    <!-- Imagem Premium com máscara 100% à prova de cortes retos (Círculo Perfeito) -->
+                    <div class="relative z-10 w-full h-full max-w-[500px] lg:max-w-[800px] mx-auto flex justify-center items-center lg:scale-110 lg:origin-bottom lg:translate-x-4">
                         <img src="samyr_castro_hero.png" 
                              alt="Samyr Castro" 
-                             class="relative z-10 w-full h-auto max-h-[450px] lg:max-h-[850px] object-contain object-bottom transition-all duration-700 drop-shadow-[0_0_50px_rgba(168,85,247,0.2)]"
-                             style="-webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 35%, transparent 90%); mask-image: radial-gradient(ellipse 80% 80% at 50% 45%, black 35%, transparent 90%);">
-                        
-                        <!-- Efeito Fading Inferior Absoluto -->
-                        <div class="absolute bottom-0 left-0 w-full h-[50%] bg-gradient-to-t from-dark-950 via-dark-950/90 to-transparent z-20 pointer-events-none"></div>
+                             class="relative z-10 w-full h-full object-contain object-center transition-all duration-700 drop-shadow-[0_0_50px_rgba(168,85,247,0.2)]"
+                             style="-webkit-mask-image: radial-gradient(circle at 50% 50%, black 45%, transparent 70%); mask-image: radial-gradient(circle at 50% 50%, black 45%, transparent 70%); -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;">
                     </div>
                 </div>
 
                 <!-- 3. Form Content (Bottom Sheet on Mobile, Bottom Left on Desktop) -->
-                <form class="w-full max-w-md mx-auto lg:mx-0 bg-dark-900/90 lg:bg-white/[0.02] p-6 lg:p-8 rounded-[2rem] lg:rounded-2xl border border-white/10 backdrop-blur-2xl shadow-2xl relative z-30 -mt-16 lg:mt-0 lg:col-start-1 lg:row-start-2" data-aos="fade-up" data-aos-delay="200" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');">
-                    
-                    <!-- Mobile Drag Handle UI -->
-                    <div class="w-12 h-1.5 bg-white/20 rounded-full mx-auto mb-6 lg:hidden"></div>
-
-                    <div class="absolute -top-3 right-6 lg:right-6 bg-purple-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-[0_0_10px_rgba(147,51,234,0.5)]">
-                        Vagas Limitadas
-                    </div>
-
-                    <div class="space-y-4 mb-8">
-                        <div class="relative">
-                            <i class="ph-fill ph-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
-                            <input type="text" placeholder="Nome Completo" required
-                                class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
-                        </div>
-                        <div class="relative">
-                            <i class="ph-fill ph-envelope-simple absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
-                            <input type="email" placeholder="E-mail principal" required
-                                class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
-                        </div>
-                        <div class="relative">
-                            <i class="ph-fill ph-whatsapp-logo absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
-                            <input type="tel" placeholder="WhatsApp (com DDD)" required
-                                class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
-                        </div>
+                <div class="w-full relative z-30 order-3 lg:order-none lg:col-start-1 lg:row-start-2 -mx-4 px-4 w-[calc(100%+2rem)] lg:w-full lg:mx-0 lg:px-0">
+                    <!-- Form Wrapper for App-like look on Mobile -->
+                    <form class="w-full max-w-md mx-auto lg:mx-0 bg-dark-950/95 lg:bg-white/[0.02] p-6 lg:p-8 rounded-t-[2.5rem] lg:rounded-2xl border border-white/10 border-b-0 lg:border-b backdrop-blur-2xl shadow-[0_-20px_50px_rgba(0,0,0,0.6)] lg:shadow-2xl relative -mt-8 lg:mt-0" data-aos="fade-up" data-aos-delay="200" onsubmit="event.preventDefault(); alert('Formulário enviado com sucesso!');">
                         
-                        <div class="pt-2">
-                            <p class="text-sm text-gray-300 mb-3 font-medium">Você possui certificação Ancord?</p>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div class="relative w-full">
-                                    <input type="radio" name="ancord" id="sim" value="sim" class="radio-input hidden" checked>
-                                    <label for="sim" class="radio-label block text-center bg-dark-950 text-gray-400 text-sm font-medium py-2.5 rounded-lg hover:bg-white/5">Sim, possuo</label>
-                                </div>
-                                <div class="relative w-full">
-                                    <input type="radio" name="ancord" id="nao" value="nao" class="radio-input hidden">
-                                    <label for="nao" class="radio-label block text-center bg-dark-950 text-gray-400 text-sm font-medium py-2.5 rounded-lg hover:bg-white/5">Ainda não</label>
+                        <!-- Mobile Drag Handle UI (Indicador de gaveta subindo) -->
+                        <div class="w-12 h-1.5 bg-gray-600 rounded-full mx-auto mb-8 lg:hidden"></div>
+
+                        <div class="absolute -top-3 right-8 lg:right-6 bg-purple-600 text-white text-[10px] font-bold uppercase tracking-wider py-1 px-3 rounded-full shadow-[0_0_10px_rgba(147,51,234,0.5)]">
+                            Vagas Limitadas
+                        </div>
+
+                        <div class="space-y-4 mb-8">
+                            <div class="relative">
+                                <i class="ph-fill ph-user absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
+                                <input type="text" placeholder="Nome Completo" required
+                                    class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
+                            </div>
+                            <div class="relative">
+                                <i class="ph-fill ph-envelope-simple absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
+                                <input type="email" placeholder="E-mail principal" required
+                                    class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
+                            </div>
+                            <div class="relative">
+                                <i class="ph-fill ph-whatsapp-logo absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 text-xl"></i>
+                                <input type="tel" placeholder="WhatsApp (com DDD)" required
+                                    class="glass-input w-full rounded-lg py-3.5 pl-12 pr-4 text-white placeholder-gray-500 transition-all outline-none">
+                            </div>
+                            
+                            <div class="pt-2">
+                                <p class="text-sm text-gray-300 mb-3 font-medium">Você possui certificação Ancord?</p>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <div class="relative w-full">
+                                        <input type="radio" name="ancord" id="sim" value="sim" class="radio-input hidden" checked>
+                                        <label for="sim" class="radio-label block text-center bg-dark-900 text-gray-400 text-sm font-medium py-2.5 rounded-lg hover:bg-white/5">Sim, possuo</label>
+                                    </div>
+                                    <div class="relative w-full">
+                                        <input type="radio" name="ancord" id="nao" value="nao" class="radio-input hidden">
+                                        <label for="nao" class="radio-label block text-center bg-dark-900 text-gray-400 text-sm font-medium py-2.5 rounded-lg hover:bg-white/5">Ainda não</label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <button type="submit" class="group w-full bg-gradient-to-r from-purple-700 to-purple-500 text-white font-bold py-4 rounded-lg hover:from-purple-600 hover:to-purple-400 transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] uppercase tracking-wider text-sm flex items-center justify-center gap-2">
-                        Garantir Minha Vaga
-                        <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
-                    </button>
-                    
-                    <p class="text-[11px] text-gray-500 text-center mt-5 flex items-center justify-center gap-1.5 opacity-80">
-                        <i class="ph-fill ph-shield-check text-purple-400 text-sm"></i> Suas informações estão seguras.
-                    </p>
-                </form>
+                        <button type="submit" class="group w-full bg-gradient-to-r from-purple-700 to-purple-500 text-white font-bold py-4 rounded-lg hover:from-purple-600 hover:to-purple-400 transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)] uppercase tracking-wider text-sm flex items-center justify-center gap-2">
+                            Garantir Minha Vaga
+                            <i class="ph-bold ph-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+                        
+                        <p class="text-[11px] text-gray-500 text-center mt-5 flex items-center justify-center gap-1.5 opacity-80 pb-2 lg:pb-0">
+                            <i class="ph-fill ph-shield-check text-purple-400 text-sm"></i> Suas informações estão seguras.
+                        </p>
+                    </form>
+                </div>
 
             </div>
         </div>
